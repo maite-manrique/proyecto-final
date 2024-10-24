@@ -2,52 +2,95 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'Trabajo final desarrollo iv';
+$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
+<?php
+session_start();
+include 'conexion.php';
 
-    <div class="jumbotron text-center bg-transparent mt-5 mb-5">
-        <h1 class="display-4">Congratulations!</h1>
+$categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
+$sql = "SELECT * FROM productos";
+if ($categoria) {
+    $sql .= " WHERE categoria = '$categoria'";
+}
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+$result = $conn->query($sql);
+?>
 
-        <p><a class="btn btn-lg btn-success" href="https://www.yiiframework.com">Get started with Yii</a></p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda en línea</title>
+    <link rel="stylesheet" href="site.css">
+    <style>
+        .producto {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        .producto img {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tienda en línea</h1>
+    
+    <div>
+        <a href="index.php">Todos los productos</a> | 
+        <a href="index.php?categoria=bases">Bases</a> | 
+        <a href="index.php?categoria=correctores">Correctores</a> | 
+        <a href="index.php?categoria=herramientas">Herramientas</a>
+         <a href="index.php?categoria=labiales">Labiales</a>
+         <a href="index.php?categoria=sombras">Sombras</a>
+         <a href="index.php?categoria=polvos">Polvos</a>
+         <a href="index.php?categoria=rubores">Rubores</a>
+         <a href="index.php?categoria=primers">Primers</a>
+         <a href="index.php?categoria=máscaras">Máscaras</a>
+         <a href="index.php?categoria=iluminadores">Iluminadores</a>
+         <a href="index.php?categoria=esmaltes">Esmaltes</a>
+         <a href="index.php?categoria=contornos">Contornos</a>
+         <a href="index.php?categoria=bronceadores">Bronceadores</a>
+         <a href="index.php?categoria=cejas">Cejas</a>
+         <a href="index.php?categoria=fijadores">Fijadores</a>
     </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+    
+    <div>
+        <form method="GET" action="index.php">
+            <input type="text" name="search" placeholder="Buscar productos...">
+            <button type="submit">Buscar</button>
+        </form>
     </div>
+    
+    <div class="productos">
+        <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='producto'>";
+                echo "<img src='imagenes/" . $row['imagen'] . "' alt='" . $row['nombre'] . "'>";
+                echo "<h2>" . $row['nombre'] . "</h2>";
+                echo "<p>" . $row['descripcion'] . "</p>";
+                echo "<p><strong>Precio: $" . $row['precio'] . "</strong></p>";
+                echo "<form method='POST' action='carrito.php'>";
+                echo "<input type='hidden' name='producto_id' value='" . $row['id'] . "'>";
+                echo "<button type='submit' name='agregar_carrito'>Añadir al carrito</button>";
+                echo "</form>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No se encontraron productos</p>";
+        }
+        ?>
+    </div>
+</body>
+</html>
+
+<?php
+$conn->close();
+?>
 </div>
+
