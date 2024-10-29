@@ -2,7 +2,7 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+$this->title = 'Proyecto Final';
 ?>
 <div class="site-index">
 <?php
@@ -41,7 +41,7 @@ $result = $conn->query($sql);
     <h1>Tienda en línea</h1>
     
     <div>
-        <a href="index.php">Todos los productos</a> | 
+        <a href="index.php"><b>Todos los productos</b></a> | 
         <a href="index.php?categoria=bases">Bases</a> | 
         <a href="index.php?categoria=correctores">Correctores</a> | 
         <a href="index.php?categoria=herramientas">Herramientas</a>
@@ -86,6 +86,35 @@ $result = $conn->query($sql);
         }
         ?>
     </div>
+
+    <section class="Productos-destacados">
+        <h2>Productos destacados</h2>
+        <div class="productos">
+            <!--Ejemplo de los productos destacados -->
+            <div class="producto">
+                <img src="agregar nombre del producto" alt="Labial">
+                <p>Labial Mate</p>
+                <p>$2000</p>
+            </div>
+            <button>Agregar al carrito</button>
+        </div>
+    <!-- Podemos repetir este div de productos para los que destaquemos -->
+    </section>
+
+    <section class="Suscripción">
+        <p>Suscribete para recibir ofertas exclusivas</p>
+        <input type="email" placeholder="Correo Electrónico">
+        <button>Suscribirse</button>
+    </section>
+
+    <footer>
+        <p>© 2024 Tienda online de msquillaje. Todos los derechos reservados</p>
+        <div class="Encuentranos en nuestras redes sociales">
+            <a href="">Instagram</a>
+            <a href="">Facebook</a>
+            <a href="">TikTok</a>
+        </div>
+    </footer>
 </body>
 </html>
 
