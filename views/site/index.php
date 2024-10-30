@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\Html;
 /** @var yii\web\View $this */
 
 $this->title = 'Proyecto Final';
@@ -21,7 +21,8 @@ if ($categoria) {
     <h1>Tienda en línea</h1>
 
     <div>
-        <a href="index.php"><b>Todos los productos</b></a> |
+    <?= Html::a('Todos los productos', ['/producto/index'], ['class' => '']) ?>
+        <!-- <a href="index.php"><b>Todos los productos</b></a> | -->
         <a href="index.php?categoria=bases">Bases</a> |
         <a href="index.php?categoria=correctores">Correctores</a> |
         <a href="index.php?categoria=herramientas">Herramientas</a>
