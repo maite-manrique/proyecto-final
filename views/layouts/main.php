@@ -34,14 +34,32 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
-        'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
+        'options' => ['class' => 'estilo-nav  navbar-expand-md fixed-top bg-transparent']
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
+        'encodeLabels' => false,
+        'options' => ['class' => 'navbar-nav estilo-nav '],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Home<i class="fas fa-user"></i>', 'url' => ['/site/index']],
+            ['label' => 'Bases', 'url' => ['/site/about']],
+            ['label' => 'Productos', 'url' => ['/producto/index']],
+            ['label' => 'Correctores', 'url' => ['/site/contact']],
+            ['label' => 'Herramientas', 'url' => ['/site/contact']],
+            ['label' => 'Labiales', 'url' => ['/site/contact']],
+            ['label' => 'Iluminadores', 'url' => ['/site/contact']],
+            ['label' => 'Sombras', 'url' => ['/site/contact']],
+            ['label' => 'Polvos', 'url' => ['/site/contact']],
+            ['label' => 'Rubores', 'url' => ['/site/contact']],
+            ['label' => 'Primers', 'url' => ['/site/contact']],
+            ['label' => 'Mascaras', 'url' => ['/site/contact']],
+            ['label' => 'Esmaltes', 'url' => ['/site/contact']],
+            ['label' => 'Contornos', 'url' => ['/site/contact']],
+            ['label' => 'Bronceadores', 'url' => ['/site/contact']],
+            ['label' => 'Fijadores', 'url' => ['/site/contact']],
+            ['label' => 'Cejas', 'url' => ['/site/contact']],
+            ['label' => '<i class="fas fa-shopping-cart"></i>', 'url' => ['/compra/view']],
+            ['label' => 'Usuario', 'url' => ['/site/contact']],
+
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
@@ -71,8 +89,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
         <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?= date('Y') ?></div>
-            <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
+            <div class="col-md-6 text-center text-md-start">&copy; Tienda online de maquillaje. Todos los derechos reservados <?= date('Y') ?></div>
+            <div class="">
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-tiktok"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+            </div>
         </div>
     </div>
 </footer>

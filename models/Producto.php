@@ -15,6 +15,8 @@ use Yii;
  */
 class Producto extends \yii\db\ActiveRecord
 {
+    public $categoria;
+    
     /**
      * {@inheritdoc}
      */

@@ -11,7 +11,13 @@ h1 {
     color: #ff4d88; /* Rosa fuerte para el título */
     margin: 20px 0;
 }
-
+.navbar-nav a {
+    color: #ff6699;
+    font-weight: bold;
+}
+.navbar-nav a:hover {
+    color: #ff99cc;
+}
 a {
     color: #ff6699; /* Color de los enlaces */
     text-decoration: none;
@@ -104,4 +110,11 @@ form button:hover {
 .form-container {
     text-align: center;
     margin: 20px;
+}
+.fondcarrito {
+    border: 1px solid #ff99cc; /* Bordes rosas */
+    background-color: #fff0f5; /* Fondo rosa claro */
+}
+.carritofond {
+    border: 1px solid #ff99cc;
 }
