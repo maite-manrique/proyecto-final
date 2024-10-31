@@ -68,19 +68,24 @@ if ($categoria) {
         ?>
     </div>
 
-    <section class="Productos-destacados">
-        <h2>Productos destacados</h2>
-        <div class="productos">
-            <!--Ejemplo de los productos destacados -->
-            <div class="producto">
-                <img src="agregar nombre del producto" alt="Labial">
-                <p>Labial Mate</p>
-                <p>$2000</p>
+    <div class="col-lg-4 col-sm-6">
+        <section class="Productos-destacados">
+            <h2>Productos destacados</h2>
+            <div class="productos">
+                <!--Ejemplo de los productos destacados -->
+                <div class="producto">
+                    <img src="agregar nombre del producto" alt="Labial">
+                    <p>Labial Mate</p>
+                    <p>$2500</p>
+                    <img src="nombre del producto" alt="Delineador Liquido">
+                    <p>Delineador Liquido</p>
+                    <p>$3000</p>
+                </div>
+                <button>Agregar al carrito</button>
             </div>
-            <button>Agregar al carrito</button>
-        </div>
-    <!-- Podemos repetir este div de productos para los que destaquemos -->
-    </section>
+            <!-- Podemos repetir este div de productos para los que destaquemos -->
+        </section>
+    </div>
 
     <section class="Suscripción">
         <p>Suscribete para recibir ofertas exclusivas</p>
@@ -89,7 +94,7 @@ if ($categoria) {
     </section>
 
     <footer>
-        <p>© 2024 Tienda online de msquillaje. Todos los derechos reservados</p>
+        <p>© 2024 Tienda online de maquillaje. Todos los derechos reservados</p>
         <div class="Encuentranos en nuestras redes sociales">
             <a href="">Instagram</a>
             <a href="">Facebook</a>
