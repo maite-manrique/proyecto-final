@@ -3,17 +3,17 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Cart;
-use app\models\Product;
+use app\models\Producto;
 use yii\web\Controller;
 
 class CartController extends Controller
 {
     public function actionAdd($id)
     {
-        $product = Product::findOne($id);
-        if ($product) {
+        $Producto = Producto::findOne($id);
+        if ($Producto) {
             $cart = new Cart();
-            $cart->product_id = $product->id;
+            $cart->Producto_id = $Producto->id;
             $cart->user_id = Yii::$app->user->id;
             $cart->quantity = 1;
             $cart->save();

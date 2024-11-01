@@ -50,6 +50,7 @@ $this->title = 'Proyecto Final';
     <div class="row">
         <section class="Productos-destacados">
             <h2>Productos destacados</h2>
+            
             <div class="productos">
                 <!--Ejemplo de los productos destacados -->
                 <div class="producto col-lg-4 col-sm-6">
@@ -57,11 +58,13 @@ $this->title = 'Proyecto Final';
                     <p>Labial Mate</p>
                     <p>$2500</p>
                 </div>
+
                 <div class="producto col-lg-4 col-sm-6">
                     <img src="delineador_liquido" alt="Delineador Liquido">
                     <p>Delineador Liquido</p>
                     <p>$3000</p>
                 </div>
+
                 <div class="producto col-lg-4 col-sm-6">
                     <img src="sombra_ojos" alt="Sombra de ojos">
                     <p>Sombra de ojos</p>
@@ -72,24 +75,11 @@ $this->title = 'Proyecto Final';
             <!-- Podemos repetir este div de productos para los que destaquemos -->
         </section>
     </div>
-
-    
-
-                    <button>Agregar al carrito <i class="fab fa-shopify"></i></button>
+         <button>Agregar al carrito <i class="fab fa-shopify"></i></button>
         <section class="Suscripción">
             <p>Suscribete para recibir ofertas exclusivas</p>
             <input type="email" placeholder="Correo Electrónico">
             <button>Suscribirse</button>
         </section>
-
-        <!-- <footer>
-            <p>© 2024 Tienda online de maquillaje. Todos los derechos reservados</p>
-            <div class="">
-                <a href="">Instagram</a>
-                <a href="">Facebook</a>
-                <a href="">TikTok</a>
-            </div>
-        </footer> -->
-    </div>
 </div>
 
