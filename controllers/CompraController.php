@@ -2,13 +2,16 @@
 
 namespace app\controllers;
 
+use Yii;
+use app\models\Compra;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use yii\filters\VerbFilter;´
+use yii\components\Cart;
 
 /**
- * CompraController implements the CRUD actions for Compra model.
+ * CompraController implementa las acciones CRUD para el modelo Compra.
  */
 class CompraController extends Controller
 {
@@ -23,7 +26,7 @@ class CompraController extends Controller
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
-                        'delete' => ['POST'],
+                        'delete' => ['POST'], // Solo permite la eliminación mediante POST
                     ],
                 ],
             ]
@@ -31,7 +34,7 @@ class CompraController extends Controller
     }
 
     /**
-     * Lists all Compra models.
+     * Lista todos los modelos de Compra.
      *
      * @return string
      */
@@ -41,103 +44,118 @@ class CompraController extends Controller
             'query' => Compra::find(),
             /*
             'pagination' => [
-                'pageSize' => 50
+                'pageSize' => 50 // Tamaño de página para la paginación
             ],
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'id' => SORT_DESC, // Ordena por ID de manera descendente
                 ]
             ],
             */
         ]);
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider, // Proveedor de datos para la vista
         ]);
     }
 
     /**
-     * Displays a single Compra model.
+     * Muestra un único modelo de Compra.
      * @param int $id ID
      * @return string
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException si el modelo no puede ser encontrado
      */
-    public function actionView()
+    public function actionView($id = null)
     {
+        // Si se proporciona un ID, se busca el modelo de compra
+        if ($id !== null) {
+            $model = $this->findModel($id);
+            return $this->render('view', [
+                'model' => $model, // Pasar el modelo a la vista
+            ]);
+        }
+
+        // Suponiendo que tienes una función para obtener el carrito
+        $cartItems = Yii::$app->cart->getItems(); // Obtiene los productos en el carrito
+        $totalPrice = Yii::$app->cart->getTotalPrice(); // Obtiene el precio total
+        $paymentMethods = ['Tarjeta de Crédito', 'Tarjeta de Débito', 'Transferencia Bancaria', 'Mercado Pago']; // Métodos de pago
+
         return $this->render('view', [
-    
+            'cartItems' => $cartItems, // Pasar los elementos del carrito a la vista
+            'totalPrice' => $totalPrice, // Pasar el precio total a la vista
+            'paymentMethods' => $paymentMethods, // Pasar los métodos de pago a la vista
         ]);
     }
 
     /**
-     * Creates a new Compra model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Crea un nuevo modelo de Compra.
+     * Si la creación es exitosa, el navegador será redirigido a la página de 'view'.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Compra();
+        $model = new Compra(); // Crear un nuevo modelo de Compra
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['view', 'id' => $model->id]); // Redirigir a la vista del modelo creado
             }
         } else {
-            $model->loadDefaultValues();
+            $model->loadDefaultValues(); // Cargar valores predeterminados
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model, // Pasar el modelo a la vista de creación
         ]);
     }
 
     /**
-     * Updates an existing Compra model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * Actualiza un modelo existente de Compra.
+     * Si la actualización es exitosa, el navegador será redirigido a la página de 'view'.
      * @param int $id ID
      * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException si el modelo no puede ser encontrado
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($id); // Buscar el modelo a actualizar
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]); // Redirigir a la vista del modelo actualizado
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'model' => $model, // Pasar el modelo a la vista de actualización
         ]);
     }
 
     /**
-     * Deletes an existing Compra model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * Elimina un modelo existente de Compra.
+     * Si la eliminación es exitosa, el navegador será redirigido a la página 'index'.
      * @param int $id ID
      * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException si el modelo no puede ser encontrado
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->delete(); // Eliminar el modelo
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index']); // Redirigir a la lista de compras
     }
 
     /**
-     * Finds the Compra model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * Busca el modelo Compra basado en su valor de clave primaria.
+     * Si el modelo no es encontrado, se lanzará una excepción HTTP 404.
      * @param int $id ID
-     * @return Compra the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * @return Compra el modelo cargado
+     * @throws NotFoundHttpException si el modelo no puede ser encontrado
      */
     protected function findModel($id)
     {
         if (($model = Compra::findOne(['id' => $id])) !== null) {
-            return $model;
+            return $model; // Retornar el modelo encontrado
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException('La página solicitada no existe.'); // Lanzar excepción si no se encuentra el modelo
     }
 }
