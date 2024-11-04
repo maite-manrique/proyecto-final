@@ -105,6 +105,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 <a href=""><i class="fab fa-instagram"></i></a>
                 <a href=""><i class="fab fa-tiktok"></i></a>
                 <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </div>

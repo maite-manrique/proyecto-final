@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 /** @var yii\web\View $this */
 
-$this->title = 'Proyecto Final';
+$this->title = 'Proyecto Final WAWA';
 ?>
 <?php
 // session_start();
@@ -54,19 +54,19 @@ $this->title = 'Proyecto Final';
             <div class="productos">
                 <!--Ejemplo de los productos destacados -->
                 <div class="producto col-lg-4 col-sm-6">
-                    <img src="labial_mate" alt="Labial">
+                    <img src="multimedia/" alt="Labial">
                     <p>Labial Mate</p>
                     <p>$2500</p>
                 </div>
 
                 <div class="producto col-lg-4 col-sm-6">
-                    <img src="delineador_liquido" alt="Delineador Liquido">
+                    <img src="multimedia/" alt="Delineador Liquido">
                     <p>Delineador Liquido</p>
                     <p>$3000</p>
                 </div>
 
                 <div class="producto col-lg-4 col-sm-6">
-                    <img src="sombra_ojos" alt="Sombra de ojos">
+                    <img src="multimedia/" alt="Sombra de ojos">
                     <p>Sombra de ojos</p>
                     <p>$5000</p>
                 </div>
