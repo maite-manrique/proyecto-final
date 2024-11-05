@@ -7,12 +7,13 @@ use app\models\Compra;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;´
+use yii\filters\VerbFilter;
 use yii\components\Cart;
 
 /**
  * CompraController implementa las acciones CRUD para el modelo Compra.
  */
+
 class CompraController extends Controller
 {
     /**
@@ -79,6 +80,24 @@ class CompraController extends Controller
         $cartItems = Yii::$app->cart->getItems(); // Obtiene los productos en el carrito
         $totalPrice = Yii::$app->cart->getTotalPrice(); // Obtiene el precio total
         $paymentMethods = ['Tarjeta de Crédito', 'Tarjeta de Débito', 'Transferencia Bancaria', 'Mercado Pago']; // Métodos de pago
+
+        <div class="btn-group" role="group" aria-label="Métodos de Pago">
+             <!-- Tarjeta de Débito -->
+            echo Html::a('<i class="bi bi-credit-card"></i> Tarjeta de Débito', ['compra/checkout'], ['class' => 'btn btn-primary']);
+    
+            <!-- Tarjeta de Crédito -->
+            echo Html::a('<i class="bi bi-credit-card-2-front"></i> Tarjeta de Crédito', ['compra/checkout'], ['class' => 'btn btn-secondary']);
+            
+            <!-- Mercado Pago -->
+            echo Html::a('<i class="bi bi-credit-card-2-front"></i> Mercado Pago', ['compra/checkout'], ['class' => 'btn btn-success']);
+            
+            <!-- Transferencia Bancaria -->
+            echo Html::a('<i class="bi bi-bank"></i> Transferencia Bancaria', ['compra/checkout'], ['class' => 'btn btn-info']);
+            
+            <!-- Efectivo -->
+            echo Html::a('<i class="bi bi-cash"></i> Efectivo', ['compra/checkout'], ['class' => 'btn btn-warning']);
+        </div>
+
 
         return $this->render('view', [
             'cartItems' => $cartItems, // Pasar los elementos del carrito a la vista

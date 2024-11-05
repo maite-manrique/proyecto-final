@@ -53,8 +53,9 @@ $this->title = 'Mi Carrito';
                     <li><?= Html::encode($method) ?></li>
                 <?php endforeach; ?>
             </ul>
-            <div>
+            <div class="btn-group" role="group" aria-label="Compra">
                 <?= Html::a('Finalizar Compra', ['compra/checkout'], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Cancelar Compra', ['compra/checkout'], ['class' => 'btn btn-secondary']) ?>
             </div>
         </div>
     </div>

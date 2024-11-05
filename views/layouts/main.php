@@ -12,7 +12,7 @@ use yii\bootstrap5\NavBar;
 
 AppAsset::register($this);
 \yidas\yii\fontawesome\FontawesomeAsset::register($this);
-$this->title = Yii::t("app","");
+$this->title = Yii::t("app", "");
 
 $this->registerCsrfMetaTags();
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
@@ -26,6 +26,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -33,11 +34,21 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 <header id="header">
     <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => ['class' => 'navbar navbar-expand-md navbar-light bg-light fixed-top'] // Barra fija y color claro
+    $this->registerLinkTag([
+        'rel' => 'icon',
+        'type' => 'image/x-icon',
+        'href' => Yii::getAlias('@web/images/vina32x32.png') // Ruta al logo de 32px para pestaña
     ]);
+    
+    NavBar::begin([
+        'brandLabel' => Html::img('@web/images/logo.png', [
+            'alt' => 'Vina Blossom',
+            'class' => 'logo-class',
+            'style' => 'height: 45px; margin-right: 5px;'
+            ]) . Html::tag('span', 'Vina Blossom', ['style' => 'font-size: 1.25rem; font-weight: bold;']),
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => ['class' => 'navbar navbar-expand-md navbar-light bg-light fixed-top']
+        ]);
 
     echo Nav::widget([
         'encodeLabels' => false,
@@ -65,21 +76,18 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ['label' => 'Cejas', 'url' => ['/producto/cejas']],
                 ],
             ],
-            // Enlace al carrito con el conteo de artículos
-             '<li class="nav-item">
-            ' . Html::a('<i class="fas fa-shopping-cart"></i> (' . Yii::$app->cart->getItemCount() . ')', ['compra/view'], ['class' => 'nav-link']) . '
-        </li>',
-        ['label' => 'Usuario', 'url' => ['/site/contact']],
-        Yii::$app->user->isGuest
-            ? ['label' => 'Login', 'url' => ['/site/login']]
-            : '<li class="nav-item">'
-                . Html::beginForm(['/site/logout'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'nav-link btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
+            '<li class="nav-item">' . Html::a('<i class="fas fa-shopping-cart"></i> (' . Yii::$app->cart->getItemCount() . ')', ['compra/view'], ['class' => 'nav-link']) . '</li>',
+            ['label' => 'Usuario', 'url' => ['/site/contact']],
+            Yii::$app->user->isGuest
+                ? ['label' => 'Login', 'url' => ['/site/login']]
+                : '<li class="nav-item">'
+                    . Html::beginForm(['/site/logout'])
+                    . Html::submitButton(
+                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['class' => 'nav-link btn btn-link logout']
+                    )
+                    . Html::endForm()
+                    . '</li>'
         ]
     ]);
 
@@ -88,7 +96,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 </header>
 
 <main id="main" class="flex-shrink-0" role="main">
-    <div class="container mt-5 pt-5"> <!-- Ajuste para compensar la barra fija -->
+    <div class="container mt-5 pt-5">
         <?php if (!empty($this->params['breadcrumbs'])): ?>
             <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
         <?php endif ?>
