@@ -10,6 +10,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => ' Vina Blossom', //Nombre de nuestra tienda
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
