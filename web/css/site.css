@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #ffe6f0; /* Un suave rosa de fondo */
+    background-color: #fddeea; /* Un suave rosa de fondo */
     color: #333;
     margin: 0;
     padding: 0;
@@ -8,16 +8,19 @@ body {
 
 h1 {
     text-align: center;
-    color: #ff4d88; /* Rosa fuerte para el título */
+    color: #c94c61; /* Rosa fuerte para el título */
     margin: 20px 0;
 }
+
 .navbar-nav a {
-    color: #ff6699;
+    color: #c94c61;
     font-weight: bold;
 }
+
 .navbar-nav a:hover {
-    color: #ff99cc;
+    color: #e48a9c;
 }
+
 a {
     color: #ff6699; /* Color de los enlaces */
     text-decoration: none;
@@ -111,10 +114,12 @@ form button:hover {
     text-align: center;
     margin: 20px;
 }
+
 .fondcarrito {
     border: 1px solid #ff99cc; /* Bordes rosas */
     background-color: #ebb7c8; /* Fondo rosa claro */
 }
+
 .carritofond {
     border: 1px solid #f8b5d7;
 }
