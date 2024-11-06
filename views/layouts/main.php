@@ -4,11 +4,21 @@
 /** @var string $content */
 
 use app\assets\AppAsset;
+use app\models\Categoria;
 use app\widgets\Alert;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\helpers\VarDumper;
+
+
+$categorias=Categoria::find()->all();
+$items=[];
+foreach ($categorias as $key => $categoria) {
+    $items[]= ['label' => $categoria->categoria, 'url' => ['/categoria/view', 'id' => $categoria->id]];
+}
+
 
 AppAsset::register($this);
 \yidas\yii\fontawesome\FontawesomeAsset::register($this);
@@ -58,23 +68,24 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             ['label' => 'Productos', 'url' => ['/producto/index']],
             [
                 'label' => 'Categorías',
-                'items' => [
-                    ['label' => 'Bases', 'url' => ['/producto/bases']],
-                    ['label' => 'Correctores', 'url' => ['/producto/correctores']],
-                    ['label' => 'Herramientas', 'url' => ['/producto/herramientas']],
-                    ['label' => 'Labiales', 'url' => ['/producto/labiales']],
-                    ['label' => 'Iluminadores', 'url' => ['/producto/iluminadores']],
-                    ['label' => 'Sombras', 'url' => ['/producto/sombras']],
-                    ['label' => 'Polvos', 'url' => ['/producto/polvos']],
-                    ['label' => 'Rubores', 'url' => ['/producto/rubores']],
-                    ['label' => 'Primers', 'url' => ['/producto/primers']],
-                    ['label' => 'Mascaras', 'url' => ['/producto/mascaras']],
-                    ['label' => 'Esmaltes', 'url' => ['/producto/esmaltes']],
-                    ['label' => 'Contornos', 'url' => ['/producto/contornos']],
-                    ['label' => 'Bronceadores', 'url' => ['/producto/bronceadores']],
-                    ['label' => 'Fijadores', 'url' => ['/producto/fijadores']],
-                    ['label' => 'Cejas', 'url' => ['/producto/cejas']],
-                ],
+                'items' => $items
+                //     // // ['label' => 'Bases', 'url' => ['/categoria/view/']],
+                //     // ['label' => 'Correctores', 'url' => ['/producto/correctores']],
+                //     // ['label' => 'Herramientas', 'url' => ['/producto/herramientas']],
+                //     // ['label' => 'Labiales', 'url' => ['/producto/labiales']],
+                //     // ['label' => 'Iluminadores', 'url' => ['/producto/iluminadores']],
+                //     // ['label' => 'Sombras', 'url' => ['/producto/sombras']],
+                //     // ['label' => 'Polvos', 'url' => ['/producto/polvos']],
+                //     // ['label' => 'Rubores', 'url' => ['/producto/rubores']],
+                //     // ['label' => 'Primers', 'url' => ['/producto/primers']],
+                //     // ['label' => 'Mascaras', 'url' => ['/producto/mascaras']],
+                //     // ['label' => 'Esmaltes', 'url' => ['/producto/esmaltes']],
+                //     // ['label' => 'Contornos', 'url' => ['/producto/contornos']],
+                //     // ['label' => 'Bronceadores', 'url' => ['/producto/bronceadores']],
+                //     // ['label' => 'Fijadores', 'url' => ['/producto/fijadores']],
+                //     // ['label' => 'Cejas', 'url' => ['/producto/cejas']],
+        
+                // ],
             ],
             '<li class="nav-item">' . Html::a('<i class="fas fa-shopping-cart"></i> (' . Yii::$app->cart->getItemCount() . ')', ['compra/view'], ['class' => 'nav-link']) . '</li>',
             ['label' => 'Usuario', 'url' => ['/site/contact']],

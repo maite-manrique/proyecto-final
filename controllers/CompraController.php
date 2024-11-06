@@ -81,22 +81,7 @@ class CompraController extends Controller
         $totalPrice = Yii::$app->cart->getTotalPrice(); // Obtiene el precio total
         $paymentMethods = ['Tarjeta de Crédito', 'Tarjeta de Débito', 'Transferencia Bancaria', 'Mercado Pago']; // Métodos de pago
 
-        <div class="btn-group" role="group" aria-label="Métodos de Pago">
-             <!-- Tarjeta de Débito -->
-            echo Html::a('<i class="bi bi-credit-card"></i> Tarjeta de Débito', ['compra/checkout'], ['class' => 'btn btn-primary']);
-    
-            <!-- Tarjeta de Crédito -->
-            echo Html::a('<i class="bi bi-credit-card-2-front"></i> Tarjeta de Crédito', ['compra/checkout'], ['class' => 'btn btn-secondary']);
-            
-            <!-- Mercado Pago -->
-            echo Html::a('<i class="bi bi-credit-card-2-front"></i> Mercado Pago', ['compra/checkout'], ['class' => 'btn btn-success']);
-            
-            <!-- Transferencia Bancaria -->
-            echo Html::a('<i class="bi bi-bank"></i> Transferencia Bancaria', ['compra/checkout'], ['class' => 'btn btn-info']);
-            
-            <!-- Efectivo -->
-            echo Html::a('<i class="bi bi-cash"></i> Efectivo', ['compra/checkout'], ['class' => 'btn btn-warning']);
-        </div>
+       
 
 
         return $this->render('view', [

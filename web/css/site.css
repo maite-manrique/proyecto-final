@@ -77,11 +77,7 @@ a:hover {
 }
 
 button {
-<<<<<<< Updated upstream
     background-color: #f090b0;
-=======
-    background-color: #c94c61;
->>>>>>> Stashed changes
     color: white;
     padding: 10px 15px;
     border: none;
@@ -91,11 +87,7 @@ button {
 }
 
 button:hover {
-<<<<<<< Updated upstream
     background-color: #f14d8f; /* Botón más oscuro al pasar el mouse */
-=======
-    background-color: #b93e55; /* Botón más oscuro al pasar el mouse */
->>>>>>> Stashed changes
 }
 
 input[type="text"] {
@@ -115,11 +107,7 @@ form button {
 }
 
 form button:hover {
-<<<<<<< Updated upstream
     background-color: #f580ba;
-=======
-    background-color: #b93e55;
->>>>>>> Stashed changes
 }
 
 .form-container {
@@ -133,10 +121,6 @@ form button:hover {
 }
 
 .carritofond {
-<<<<<<< Updated upstream
     border: 1px solid #f8b5d7;
-=======
-    border: 1px solid #e48a9c;
->>>>>>> Stashed changes
 }
 
