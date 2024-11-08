@@ -81,6 +81,8 @@ class CompraController extends Controller
         $totalPrice = Yii::$app->cart->getTotalPrice(); // Obtiene el precio total
         $paymentMethods = ['Tarjeta de Crédito', 'Tarjeta de Débito', 'Transferencia Bancaria', 'Mercado Pago']; // Métodos de pago
         
+
+        
         return $this->render('view', [
             'cartItems' => $cartItems, // Pasar los elementos del carrito a la vista
             'totalPrice' => $totalPrice, // Pasar el precio total a la vista
