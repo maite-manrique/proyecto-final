@@ -1,6 +1,6 @@
-body {
+body { 
     font-family: 'Arial', sans-serif;
-    background-color: #ffe6f0; /* Un suave rosa de fondo */
+    background-color: #fddeea; /* Un suave rosa de fondo */
     color: #333;
     margin: 0;
     padding: 0;
@@ -8,25 +8,28 @@ body {
 
 h1 {
     text-align: center;
-    color: #ff4d88; /* Rosa fuerte para el título */
+    color: #c94c61; /* Rosa fuerte para el título */
     margin: 20px 0;
 }
+
 .navbar-nav a {
-    color: #ff6699;
+    color: #c94c61;
     font-weight: bold;
 }
+
 .navbar-nav a:hover {
-    color: #ff99cc;
+    color: #e48a9c;
 }
+
 a {
-    color: #ff6699; /* Color de los enlaces */
+    color: #c94c61; /* Color de los enlaces */
     text-decoration: none;
     font-weight: bold;
     margin: 0 10px;
 }
 
 a:hover {
-    color: #ff99cc; /* Un color más suave al pasar el mouse */
+    color: #e48a9c; /* Un color más suave al pasar el mouse */
 }
 
 .productos {
@@ -37,12 +40,12 @@ a:hover {
 }
 
 .producto {
-    border: 1px solid #ff99cc; /* Bordes rosas */
+    border: 1px solid #e48a9c; /* Bordes rosas */
     border-radius: 10px;
     padding: 20px;
     margin: 15px;
     text-align: center;
-    background-color: #fff0f5; /* Fondo rosa claro */
+    background-color: #ffd9e0; /* Fondo rosa claro */
     width: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
@@ -60,7 +63,7 @@ a:hover {
 
 .producto h2 {
     font-size: 18px;
-    color: #ff66b2; /* Título de los productos en rosa oscuro */
+    color: #c94c61; /* Título de los productos en rosa oscuro */
     margin: 10px 0;
 }
 
@@ -90,12 +93,12 @@ button:hover {
 input[type="text"] {
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ff99cc;
+    border: 1px solid #e48a9c;
     width: 200px;
 }
 
 form button {
-    background-color: #ff66b2;
+    background-color: #c94c61;
     border: none;
     padding: 10px;
     color: white;
@@ -111,10 +114,18 @@ form button:hover {
     text-align: center;
     margin: 20px;
 }
+
 .fondcarrito {
+<<<<<<< HEAD
     border: 1px solid #ff99cc; /* Bordes rosas */
     background-color: #ffeaf6; /* Fondo rosa claro */
+=======
+    border: 1px solid #e48a9c; /* Bordes rosas */
+    background-color: #ffd9e0; /* Fondo rosa claro */
+>>>>>>> 0b8b79715b1adcab7969a832d4cb3c16b725d156
 }
+
 .carritofond {
     border: 1px solid #f8b5d7;
 }
+

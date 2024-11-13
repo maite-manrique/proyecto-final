@@ -1,5 +1,5 @@
 <?php
-use yii\helpers\Html;
+
 /** @var yii\web\View $this */
 
 $this->title = 'Proyecto Final WAWA';
@@ -60,7 +60,7 @@ $this->title = 'Proyecto Final WAWA';
                 </div>
 
                 <div class="producto col-lg-4 col-sm-6">
-                    <img src="multimedia/" alt="Delineador Liquido">
+                    <img src="IMAGENES/Balsamo Labial" alt="Delineador Liquido">
                     <p>Delineador Liquido</p>
                     <p>$3000</p>
                 </div>

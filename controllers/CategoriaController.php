@@ -3,10 +3,13 @@
 namespace app\controllers;
 
 use app\models\Categoria;
+use app\models\Producto;
+use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\VarDumper;
 
 /**
  * CategoriaController implements the CRUD actions for Categoria model.
@@ -65,6 +68,8 @@ class CategoriaController extends Controller
      */
     public function actionView($id)
     {
+        $productos=Producto::find()->innerJoin('producto_categoria pc', 'id=pc.id_producto')->where(['pc.id_categoria'=>$id])->all();
+        Yii::error(VarDumper::dumpAsString($productos));
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
