@@ -21,6 +21,18 @@ class CartController extends Controller
         return $this->redirect(['cart/view']);
     }
 
+        public function actionAdd($productId)
+    {
+        // Lógica para añadir el producto al carrito
+
+        // Actualizar el número de artículos en la sesión
+        $cartCount = Yii::$app->session->get('cart_count', 0);
+        Yii::$app->session->set('cart_count', $cartCount + 1);
+
+        return $this->redirect(['cart/index']);
+    }
+
+
     public function actionView()
     {
         $items = Cart::find()->where(['user_id' => Yii::$app->user->id])->all();

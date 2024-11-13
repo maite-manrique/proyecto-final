@@ -59,6 +59,7 @@ $this->title = 'Proyecto Final WAWA';
                     <p>$2500</p>
                 </div>
 
+<<<<<<< Updated upstream
                 <div class="producto col-lg-4 col-sm-6">
                     <img src="IMAGENES/Balsamo Labial" alt="Delineador Liquido">
                     <p>Delineador Liquido</p>
@@ -81,5 +82,40 @@ $this->title = 'Proyecto Final WAWA';
             <input type="email" placeholder="Correo Electrónico">
             <button>Suscribirse</button>
         </section>
+=======
+    <section class="Productos-destacados">
+        <h2>Productos destacados</h2>
+        <div class="productos">
+            <!--Ejemplo de los productos destacados -->
+            <div class="producto">
+                <img src="Labial_Mate.jpg" alt="Labial">
+                <p>Labial Mate</p>
+                <p>$2000</p>
+            </div>
+            <button>Agregar al carrito</button>
+        </div>
+    <!-- Podemos repetir este div de productos para los que destaquemos -->
+    </section>
+
+    <section class="suscripción">
+        <p>Suscribete para recibir ofertas exclusivas</p>
+        <input type="email" placeholder="Correo Electrónico">
+        <button>Suscribirse</button>
+    </section>
+
+    <footer>
+        <p>© 2024 Tienda online de maquillaje. Todos los derechos reservados</p>
+        <div class="Encuentranos en nuestras redes sociales">
+            <a href="">Instagram</a>
+            <a href="">Facebook</a>
+            <a href="">TikTok</a>
+        </div>
+    </footer>
+</html>
+
+<?php
+// $conn->close();
+?>
+>>>>>>> Stashed changes
 </div>
 
