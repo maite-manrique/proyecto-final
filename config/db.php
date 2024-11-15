@@ -1,15 +1,10 @@
 <?php
 
+// config/db.php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=tienda_online',
-    'username' => 'root',
-    'password' => '120523',
+    'dsn' => 'mysql:host=localhost;dbname=tienda2',  // Cambia 'localhost' y 'nombre_base_datos'
+    'username' => 'root',  // Tu nombre de usuario
+    'password' => '',
     'charset' => 'utf8',
-
-    // Schema cache options (for production environment)
-    //'enableSchemaCache' => true,
-    //'schemaCacheDuration' => 60,
-    //'schemaCache' => 'cache',
 ];
-

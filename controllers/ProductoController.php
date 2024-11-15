@@ -38,25 +38,21 @@ class ProductoController extends Controller
      */
     public function actionIndex()
     {
+        // Obtener todos los productos desde la base de datos
+        $productos = Producto::find()->all();  
+    
+        // Crear un ActiveDataProvider para la paginación
         $dataProvider = new ActiveDataProvider([
-            'query' => Producto::find(),
-            /*
-            'pagination' => [
-                'pageSize' => 50
-            ],
-            'sort' => [
-                'defaultOrder' => [
-                    'id' => SORT_DESC,
-                ]
-            ],
-            */
+            'query' => Producto::find(),  // La consulta para obtener los productos
         ]);
-
+    
+        // Renderizar la vista con los productos y el ActiveDataProvider
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'productos' => $productos,  // Pasar los productos obtenidos
+            'dataProvider' => $dataProvider,  // Pasar el ActiveDataProvider
         ]);
     }
-
+    
     /**
      * Displays a single Producto model.
      * @param int $id ID

@@ -49,7 +49,7 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
+        'db' => require __DIR__ . '/db.php',
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
