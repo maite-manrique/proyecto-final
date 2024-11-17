@@ -2,9 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-// instalar https://demos.krajee.com/widget-details/select2#google_vignette
-use kartik\select2\Select2
-
+use kartik\select2\Select2; // Importar la librería Select2
 
 /** @var yii\web\View $this */
 /** @var app\models\Producto $model */
@@ -13,22 +11,35 @@ use kartik\select2\Select2
 
 <div class="producto-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype' => 'multipart/form-data'] // Importante para subir archivos
+    ]); ?>
 
+    <!-- Campo de nombre del producto -->
     <?= $form->field($model, 'nombre_producto')->textInput(['maxlength' => true]) ?>
 
+    <!-- Campo de descripción -->
     <?= $form->field($model, 'descripcion')->textInput(['maxlength' => true]) ?>
 
+    <!-- Campo de precio -->
     <?= $form->field($model, 'precio')->textInput(['maxlength' => true]) ?>
 
+    <!-- Campo de stock -->
     <?= $form->field($model, 'stock')->textInput() ?>
 
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-    </select>
+    <!-- Uso de Select2 -->
+    <?= $form->field($model, 'categoria')->widget(Select2::classname(), [
+        'data' => [
+            1 => 'Electrónica',
+            2 => 'Ropa',
+            3 => 'Alimentos',
+        ],
+        'options' => ['placeholder' => 'Selecciona una categoría...'],
+        'pluginOptions' => ['allowClear' => true],
+    ]); ?>
+
+    <!-- Campo de carga de archivo para la imagen -->
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>

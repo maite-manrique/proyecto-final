@@ -76,10 +76,6 @@ a:hover {
     color: #fa428c; /* Precio en rosa vibrante */
 }
 
-.suscripcion {
-    
-}
-
 button {
     background-color: #f090b0;
     color: white;
@@ -120,16 +116,37 @@ form button:hover {
 }
 
 .fondcarrito {
-<<<<<<< HEAD
-    border: 1px solid #ff99cc; /* Bordes rosas */
-    background-color: #ffeaf6; /* Fondo rosa claro */
-=======
     border: 1px solid #e48a9c; /* Bordes rosas */
     background-color: #ffd9e0; /* Fondo rosa claro */
->>>>>>> 0b8b79715b1adcab7969a832d4cb3c16b725d156
 }
-
+img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .carritofond {
     border: 1px solid #f8b5d7;
 }
 
+/* Columna personalizada para 7 productos por fila */
+.col-md-1-7 {
+    width: calc(100% / 7);  /* Esto dividirá el espacio en 7 partes iguales */
+    padding: 0 10px; /* Espaciado entre las tarjetas */
+}
+
+/* Estilo de las tarjetas */
+.card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    text-align: center;
+}

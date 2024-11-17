@@ -36,6 +36,22 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
+        <?php if (!empty($categorias)): ?>
+        <?php foreach ($categorias as $categoria): ?>
+            <div class="categoria-item">
+                <?= Html::a(Html::encode($categoria->nombre), ['producto/por-categoria', 'categoriaId' => $categoria->id]) ?>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No hay categorías disponibles.</p>
+    <?php endif; ?>
+
+
+    <?php foreach ($categorias as $categoria): ?>
+        <div class="categoria-item">
+            <?= Html::a(Html::encode($categoria->nombre), ['producto/por-categoria', 'categoriaId' => $categoria->id]) ?>
+        </div>
+    <?php endforeach; ?>
 
 
 </div>

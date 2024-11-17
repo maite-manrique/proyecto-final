@@ -12,6 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="producto-view">
+    <h1><?= Html::encode($model->nombre_producto) ?></h1>
+    <!-- Mostrar la imagen del producto desde la carpeta multimedia -->
+    <img src="<?= Yii::$app->request->baseUrl . '/multimedia/' . $model->image ?>" alt="<?= Html::encode($model->nombre_producto) ?>" class="product-image">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

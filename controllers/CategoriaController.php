@@ -58,6 +58,11 @@ class CategoriaController extends Controller
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+        $categorias = Categoria::find()->all();
+    
+        return $this->render('index', [
+            'categorias' => $categorias,
+        ]);
     }
 
     /**

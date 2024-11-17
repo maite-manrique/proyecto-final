@@ -54,7 +54,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'brandLabel' => Html::img('@web/images/logo.png', [
             'alt' => 'Vina Blossom',
             'class' => 'logo-class',
-            'style' => 'height: 45px; margin-right: 5px;'
+            'style' => 'height: 40px; margin-right: 5px;'
             ]) . Html::tag('span', 'Vina Blossom', ['style' => 'font-size: 1.25rem; font-weight: bold;']),
             'brandUrl' => Yii::$app->homeUrl,
             'options' => ['class' => 'navbar navbar-expand-md navbar-light bg-light fixed-top']

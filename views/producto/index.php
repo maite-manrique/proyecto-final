@@ -20,6 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Crear Producto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <?php foreach ($categorias as $categoria): ?>
+        <div class="categoria-item">
+        <?= Html::a(Html::encode($categoria->nombre), ['producto/por-categoria', 'categoriaId' => $categoria->id]) ?>
+        </div>
+    <?php endforeach; ?>
+
+
     <!-- Mostrar productos con imágenes y descripciones -->
     <div class="container mt-4">
         <div class="row">

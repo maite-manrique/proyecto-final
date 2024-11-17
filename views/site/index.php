@@ -7,8 +7,7 @@ use yii\bootstrap5\Carousel;
 $this->title = 'Proyecto Final WAWA';
 ?>
 <div class="site-index">
-    <br><br>
-    <div class="jumbotron text-center bg-transparent mt-5 mb-5">
+     <div class="jumbotron text-center bg-transparent mt-5 mb-5">
         <form method="GET" action="index.php">
             <input type="text" name="search" placeholder="Buscar productos...">
             <button type="submit">Buscar</button>
@@ -42,9 +41,8 @@ $this->title = 'Proyecto Final WAWA';
             <div class="card">
                 <img src="@web/image/LabialMate.jpg" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Producto 1</h5>
-                    <p class="card-text">Descripción breve del producto 1. Destaca sus principales características.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
+                    <h5 class="card-title">Labial Mate</h5>
+                    <p class="card-text">Descripción</p>
                 </div>
             </div>
         </div>
@@ -54,9 +52,8 @@ $this->title = 'Proyecto Final WAWA';
             <div class="card">
                 <img src="@web/image/Sombradeojos.jpg" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Producto 2</h5>
-                    <p class="card-text">Descripción breve del producto 2. Información adicional relevante.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
+                    <h5 class="card-title">Sombra de ojos</h5>
+                    <p class="card-text">Descripción</p>
                 </div>
             </div>
         </div>
@@ -66,20 +63,15 @@ $this->title = 'Proyecto Final WAWA';
             <div class="card">
                 <img src="@web/image/DelineadorLiquido.jpg" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Producto 3</h5>
-                    <p class="card-text">Descripción breve del producto 3. Aspectos a destacar.</p>
-                    <a href="#" class="btn btn-primary">Ver más</a>
-                </div>
+                    <h5 class="card-title">Delineador Liquido</h5>
+                    <p class="card-text">Descripción</p>
+                  </div>
             </div>
         </div>
     </div>
 
         <button>Agregar al carrito <i class="fab fa-shopify"></i></button>
-        <section class="Suscripción">
-            <p>Suscribete para recibir ofertas exclusivas</p>
-            <input type="email" placeholder="Correo Electrónico">
-            <button>Suscribirse</button>
-        </section>
+        
         <footer>
             <p>© 2024 Tienda online de maquillaje. Todos los derechos reservados</p>
             <div class="Encuentranos en nuestras redes sociales">
@@ -87,6 +79,11 @@ $this->title = 'Proyecto Final WAWA';
                 <a href="">Facebook</a>
                 <a href="">TikTok</a>
             </div>
+            <section class="Suscripción">
+            <p>Suscribete para recibir ofertas exclusivas</p>
+            <input type="email" placeholder="Correo Electrónico">
+            <button>Suscribirse</button>
+        </section>
         </footer>
     </div>
 </div>
